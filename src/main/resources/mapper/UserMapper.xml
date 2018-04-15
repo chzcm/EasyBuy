@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wzf.dao.UserDao">
+    <resultMap id="User" type="com.wzf.entity.User">
+
+    </resultMap>
+
+    <select id="login" resultMap="User">
+      select * from easybuy_user where loginName = #{loginName} and password = #{password}
+    </select>
+
+    <insert id="userAdd" parameterType="com.wzf.entity.User">
+        insert into easybuy_user(loginName,userName,password,sex,identityCode,email,mobile,`type`) values (#{user.loginName},#{user.userName},#{user.password},#{user.sex},
+                                        #{user.identityCode},#{user.email},#{user.mobile},#{user.type})
+    </insert>
+</mapper>
